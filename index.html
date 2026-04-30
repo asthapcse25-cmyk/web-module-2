@@ -1,57 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Science Lab Simulation UI</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Virtual Chemistry Lab</title>
 </head>
-
 <body>
+    <h1 align="center">Virtual Chemistry Lab</h1>
+    <table border="1" width="100%" cellpadding="10">
+        <tr>
+            <!-- Draggable Items Section -->
+            <td width="50%" valign="top">
+                <h2>Lab Items</h2>
+                <p draggable="true">Beaker</p>
+                <p draggable="true">Test Tube</p>
+                <p draggable="true">Acid</p>
+                <p draggable="true">Base</p>
+            </td>
 
-<h1>Science Lab Simulation UI</h1>
-
-<div class="container">
-
-    <!-- Lab Items -->
-    <div class="panel">
-        <h2>Lab Items</h2>
-
-        <div class="item" draggable="true" ondragstart="drag(event)" id="beaker">🧪 Beaker</div>
-        <div class="item" draggable="true" ondragstart="drag(event)" id="testtube">🧫 Test Tube</div>
-        <div class="item" draggable="true" ondragstart="drag(event)" id="acid">🧴 Acid</div>
-        <div class="item" draggable="true" ondragstart="drag(event)" id="base">⚗️ Base</div>
-    </div>
-
-    <!-- Experiment Area -->
-    <div class="panel">
-        <h2>Experiment Area</h2>
-
-        <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
-            Drop Here
-        </div>
-
-        <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
-            Drop Here
-        </div>
-    </div>
-
-</div>
-
-<!-- JavaScript -->
-<script>
-function allowDrop(event) {
-    event.preventDefault();
-}
-
-function drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
-}
-
-function drop(event) {
-    event.preventDefault();
-    var data = event.dataTransfer.getData("text");
-    event.target.appendChild(document.getElementById(data));
-}
-</script>
-
+            <!-- Drop Zones Section -->
+            <td width="50%" valign="top">
+                <h2>Experiment Area</h2>
+                <div draggable="false">Drop Here</div>
+                <br><br>
+                <div draggable="false">Drop Here</div>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
